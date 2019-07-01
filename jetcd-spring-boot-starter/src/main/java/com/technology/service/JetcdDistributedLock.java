@@ -1,6 +1,7 @@
 package com.technology.service;
 
 import com.google.common.base.Charsets;
+import com.technology.config.JetcdProperties;
 import io.etcd.jetcd.ByteSequence;
 import io.etcd.jetcd.Client;
 import io.etcd.jetcd.Lease;
@@ -10,6 +11,7 @@ import io.etcd.jetcd.lock.LockResponse;
 import io.etcd.jetcd.lock.UnlockResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.*;
@@ -33,11 +35,18 @@ public class JetcdDistributedLock {
      */
     private ScheduledExecutorService heartPopService;
 
-    public JetcdDistributedLock(String... endpoints) {
-        client = Client.builder().endpoints(endpoints).build();
+    private JetcdProperties jetcdProperties;
+
+    public JetcdDistributedLock() {
+    }
+
+    public JetcdDistributedLock(JetcdProperties jetcdProperties) {
+        jetcdProperties = jetcdProperties;
+        client = Client.builder().endpoints(jetcdProperties.getEndpoints()).build();
         leaseClient = client.getLeaseClient();
         lockClient = client.getLockClient();
     }
+
 
     /**
      * 获取锁

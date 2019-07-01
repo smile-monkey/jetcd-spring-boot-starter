@@ -2,17 +2,25 @@ package com.technology.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import java.util.List;
-
 @ConfigurationProperties(prefix = "etcd.config")
 public class JetcdProperties {
-    private List<String> endpoints;
+    private String endpoints;
 
-    public List<String> getEndpoints() {
+    private boolean enabled;
+
+    public boolean isEnabled() {
+        return this.enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getEndpoints() {
         return endpoints;
     }
 
-    public void setEndpoints(List<String> endpoints) {
+    public void setEndpoints(String endpoints) {
         this.endpoints = endpoints;
     }
 }
