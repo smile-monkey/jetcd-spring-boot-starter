@@ -35,13 +35,10 @@ public class JetcdDistributedLock {
      */
     private ScheduledExecutorService heartPopService;
 
-    private JetcdProperties jetcdProperties;
-
     public JetcdDistributedLock() {
     }
 
     public JetcdDistributedLock(JetcdProperties jetcdProperties) {
-        jetcdProperties = jetcdProperties;
         client = Client.builder().endpoints(jetcdProperties.getEndpoints()).build();
         leaseClient = client.getLeaseClient();
         lockClient = client.getLockClient();

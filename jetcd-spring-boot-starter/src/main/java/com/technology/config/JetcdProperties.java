@@ -2,14 +2,14 @@ package com.technology.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "etcd.config")
+@ConfigurationProperties("etcd.config")
 public class JetcdProperties {
     private String endpoints;
 
     private boolean enabled;
 
-    public boolean isEnabled() {
-        return this.enabled;
+    public boolean getEnabled() {
+        return enabled;
     }
 
     public void setEnabled(boolean enabled) {

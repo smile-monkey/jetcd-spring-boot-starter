@@ -1,1 +1,2 @@
-#org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.technology.config.JetcdAutoConfiguration
+# springnboot默认会扫描与主类同级包及子包,如果在不同包下面配置这个
+# org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.technology.config.JetcdAutoConfiguration

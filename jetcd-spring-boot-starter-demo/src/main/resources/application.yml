@@ -1,4 +1,0 @@
-etcd:
-  config:
-    endpoints: 192.168.2.31:2379
-    enabled: true
