@@ -1,5 +1,6 @@
 package com.technology;
 
+import com.technology.config.EnableJetcd;
 import com.technology.service.JetcdDistributedLock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -9,6 +10,7 @@ import org.springframework.core.env.Environment;
 
 
 @SpringBootApplication
+@EnableJetcd
 public class MainApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
