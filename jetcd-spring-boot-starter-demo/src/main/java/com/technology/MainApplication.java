@@ -27,5 +27,6 @@ public class MainApplication implements CommandLineRunner {
         System.out.println(environment.getProperty("etcd.config.enabled"));
         System.out.println(environment.getProperty("etcd.config.endpoints"));
         System.out.println(jetcdDistributedLock);
+        // TODO 小黑8.18写的代码
     }
 }
